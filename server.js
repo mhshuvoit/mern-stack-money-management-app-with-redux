@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-mongoose.connect('mongodb://localhost:27017/mma', { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect('mongodb+srv://mhshuvoit:mhshuvoit@cluster1.xbs5i.mongodb.net/msmmawr?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true }
 )
 const db = mongoose.connection
 db.on('Err', (err) => {
