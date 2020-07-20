@@ -11,11 +11,10 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "mh shuvo",
+  "license": "",
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.19.4"
+    "concurrently": "^4.1.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
