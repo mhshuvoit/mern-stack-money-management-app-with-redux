@@ -4,9 +4,10 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const path = require('path')
+const config = require("./config/key")
 
 const app = express()
-app.use(morgan('production'))
+app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
@@ -20,10 +21,10 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-mongoose.connect('mongodb+srv://mhshuvoit:mhshuvoit@cluster1.xbs5i.mongodb.net/msmmawr?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect(config.mongoURI, { useNewUrlParser: true, useCreateIndex: true }
 )
 const db = mongoose.connection
-db.on('Err', (err) => {
+db.on('error', (err) => {
     console.log(err)
 })
 db.once("open", () => {
