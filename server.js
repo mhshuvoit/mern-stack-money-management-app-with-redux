@@ -6,7 +6,7 @@ const passport = require('passport')
 const path = require('path')
 
 const app = express()
-app.use(morgan('dev'))
+app.use(morgan('production'))
 app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
