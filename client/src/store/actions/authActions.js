@@ -12,14 +12,13 @@ export const register = (user, history) => dispatch => {
 
     // }
     Axios.post('/api/users/register', user)
-        .then((res) => {
+        .then(res => {
             dispatch({
                 type: Types.USERS_ERROR,
                 payload: {
-                    error: {}
+                    error: {},
                 }
             })
-            console.log(res)
             history.push('/login')
         })
         .catch(error => {
@@ -43,7 +42,6 @@ export const login = (user, history) => dispatch => {
             localStorage.setItem('auth_token', token) // second argument obossy string prvide korte hobe jodio token ta already string. String na hole convert kore nite hoto.
             setAuthToken(token)
             let decode = jwtDecode(token)
-
             dispatch({
                 type: Types.SET_USER,
                 payload: {
@@ -51,6 +49,7 @@ export const login = (user, history) => dispatch => {
                 }
             })
             history.push('/dashboard')
+            console.log(res)
         })
         .catch(error => {
             dispatch({

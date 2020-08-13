@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import {logout} from '../../store/actions/authActions'
 
 class Navigation extends React.Component {
-
     render() {
         return (
             <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
@@ -18,7 +17,7 @@ class Navigation extends React.Component {
                 <span className='navbar-toggler-icon'></span>
                 </button>
                 <div className='collapse navbar-collapse' id='nav'>
-                    <ul className='navbar-nav'>
+                    <ul className='navbar-nav ml-auto'>
                         <li className='nav-item'>
                             <NavLink to='/' activeClassName='active' exact>
                                 <span className='nav-link'>
@@ -47,7 +46,7 @@ class Navigation extends React.Component {
                                 : <React.Fragment>
                                     <li className='nav-item'>
                                         <NavLink to='/login' activeClassName='active'>
-                                            <span className='nav-link'>
+                                            <span className='nav-link btn btn-primary'>
                                                 Login
                                             </span>
                                         </NavLink>
@@ -61,7 +60,6 @@ class Navigation extends React.Component {
                                     </li>
                                 </React.Fragment>
                         }
-
                     </ul>
                 </div>
             </nav>

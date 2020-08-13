@@ -16,9 +16,9 @@ class Login extends React.Component {
         ) {
           return {
             error: nextProps.auth.error
-          };
+          }
         }
-        return null;
+        return null
       }
 
     changeHandler = event => {
@@ -26,6 +26,7 @@ class Login extends React.Component {
             [event.target.name]: event.target.value
         })
     }
+
 
     submitHandler = event => {
         event.preventDefault()
@@ -77,7 +78,7 @@ class Login extends React.Component {
                          )}
                        </div>
                         <Link to='/register'>Don't Have Account? Register Here</Link>
-                        <button className='btn btn-primary  my-3 d-block'>Login</button>
+                        <button className='btn btn-primary my-3 d-block'>Login</button>
                     </form>
                 </div>
             </div>

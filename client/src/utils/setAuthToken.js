@@ -6,4 +6,5 @@ const setAuthToken = token => {
         Axios.defaults.headers.common['Authorization'] = ''
     }
 }
+
 export default setAuthToken

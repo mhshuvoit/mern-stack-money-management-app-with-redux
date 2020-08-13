@@ -5,13 +5,13 @@ import { addNewTransaction } from '../../store/actions/transactionActions'
 
 const customStyles = {
     content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform: 'translate(-50%, -50%)',
-      width: '500px'
+      top         : '50%',
+      left        : '50%',
+      right       : 'auto',
+      bottom      : 'auto',
+      marginRight : '-50%',
+      transform   : 'translate(-50%, -50%)',
+      width       : '500px'
     }
   }
 
@@ -73,7 +73,6 @@ class CreateTransaction extends React.Component {
                             <option value="expense"> Expense </option>
                             <option value="income">Income</option>
                         </select>
-                            
                     </div>
                     <div className='form-group'>
                         <label htmlFor='note'> Note: </label>
@@ -94,7 +93,3 @@ class CreateTransaction extends React.Component {
 }
 
 export default connect(null, { addNewTransaction })(CreateTransaction)
-
-// amount
-// Type
-// Note

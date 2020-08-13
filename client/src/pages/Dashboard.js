@@ -46,8 +46,8 @@ class Dashboard extends React.Component {
         return (
             <div className="row">
                 <div className="col-md-8 offset-md-2">
-                    <h1>Welcome {auth.user.name} </h1>
-                    <p>You Email is {auth.user.email} </p>
+                    <h1>Welcome to {auth.user.name} </h1>
+                    <p>Your email is {auth.user.email} </p>
 
                     <button
                         className='btn btn-primary'
@@ -59,14 +59,14 @@ class Dashboard extends React.Component {
                         isOpen={this.state.createModalOpen}
                         close={this.closeCreateModal}/>
                     <br />
-                    
+                    <div className="mt-2">
                     <h1>Transactions: </h1>
                     {transactions.length > 0 ? <ul className='list-group'>
                         {
                             transactions.map(transaction => (
                                 <li
                                     key={transaction._id}
-                                    className='list-group-item'>
+                                    className='list-group-item mt-3'>
                                     <p>Amount: {transaction.amount}</p>
                                     <p>Type: {transaction.type}</p>
                                     <p>Note: {transaction.note}</p>
@@ -79,8 +79,7 @@ class Dashboard extends React.Component {
                                         /> :
                                         null
                                     }
-
-                                    <button className='btn btn-danger'
+                                    <button className='btn btn-danger mr-2'
                                         onClick={() => this.props.removeTransaction(transaction._id)}>Remove</button>
 
                                     <button className='btn btn-success'
@@ -89,6 +88,7 @@ class Dashboard extends React.Component {
                             ))
                         }
                     </ul> : <p>There is no transaction</p>}
+                    </div>
                 </div>
             </div>
         )

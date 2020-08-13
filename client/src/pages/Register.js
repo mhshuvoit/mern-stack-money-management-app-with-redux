@@ -18,9 +18,9 @@ class Register extends React.Component {
     ) {
       return {
         error: nextProps.auth.error
-      };
+      }
     }
-    return null;
+    return null
   }
 
   changeHandler = event => {
@@ -128,7 +128,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { register }
-)(Register);
+export default connect(mapStateToProps,{ register})(Register);

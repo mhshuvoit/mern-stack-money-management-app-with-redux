@@ -28,7 +28,7 @@ db.on('error', (err) => {
     console.log(err)
 })
 db.once("open", () => {
-    console.log("Database connect Estabished")
+    console.log("Database connect Established")
 })
 
 const PORT = process.env.PORT || 4000
