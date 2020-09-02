@@ -16,7 +16,6 @@ const customStyles = {
   }
 
 class CreateTransaction extends React.Component {
-
     state = {
         amount: 0,
         type: '',
@@ -44,9 +43,9 @@ class CreateTransaction extends React.Component {
         return (
             <Modal
                 isOpen={this.props.isOpen}
-                onRequestClose={this.props.close}
+                onRequestClose={this.props.isClose}
                 style={customStyles}
-                contentLabel='Create A New Transaction'>
+                contentLabel='Create A New Transaction' >
                     
                 <h2>Create A New Transaction</h2>
                 <form onSubmit={this.submitHandler}>

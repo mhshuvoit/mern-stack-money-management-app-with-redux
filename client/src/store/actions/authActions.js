@@ -35,7 +35,7 @@ export const login = (user, history) => dispatch => {
     Axios.post('/api/users/login', user)
         .then(res => {
             // save our token to local storage
-            // set auth header (Axios er header a add korar jonno)
+            // set auth header (for adding of axios header)
             // decode token
             // dispatch set user
             let token = res.data.token

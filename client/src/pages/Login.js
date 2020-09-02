@@ -27,7 +27,6 @@ class Login extends React.Component {
         })
     }
 
-
     submitHandler = event => {
         event.preventDefault()
         this.props.login({
@@ -39,7 +38,7 @@ class Login extends React.Component {
     render() {
         let { email, password, error } = this.state
         return (
-            <div class='row'>
+            <div className='row'>
                 <div className="col-md-6 offset-md-3">
                     <h1 className='text-center display-4'>Login Here</h1>
                     <form onSubmit={this.submitHandler}>

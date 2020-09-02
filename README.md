@@ -1,6 +1,23 @@
-# Mern-Stack-Money-Mangement-App-With-Redux
+# Mern-Stack-Money-Management-App-With-Redux
 
-This is a project template for mern-stack-money-mangement-mpp-with-redux. It lives at https://money-manage-app-mhs.herokuapp.com
+This is a project template for mern-stack-money-management-app-with-redux. It lives at https://money-manage-app-mhs.herokuapp.com
+
+```bash
+Feature:
+• Login/Logout with authentication
+• Transaction add, delete and update
+
+Technology:
+• HTML
+• CSS
+• Reactjs
+• ReactStrap
+• Redux
+• Nodejs
+• Expressjs
+• Mongodb
+• Heroku
+```
 
 ## Get started
 

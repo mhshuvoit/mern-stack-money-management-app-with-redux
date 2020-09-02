@@ -57,7 +57,7 @@ class Dashboard extends React.Component {
 
                     <CreateTransaction
                         isOpen={this.state.createModalOpen}
-                        close={this.closeCreateModal}/>
+                        isClose={this.closeCreateModal}/>
                     <br />
                     <div className="mt-2">
                     <h1>Transactions: </h1>
@@ -79,10 +79,14 @@ class Dashboard extends React.Component {
                                         /> :
                                         null
                                     }
-                                    <button className='btn btn-danger mr-2'
-                                        onClick={() => this.props.removeTransaction(transaction._id)}>Remove</button>
+                                    <button 
+                                        className='btn btn-danger mr-2'
+                                        onClick={() => this.props.removeTransaction(transaction._id)}>
+                                            Remove
+                                    </button>
 
-                                    <button className='btn btn-success'
+                                    <button 
+                                        className='btn btn-success'
                                         onClick={() => this.openUpdateModal(transaction._id)}>Update</button>
                                 </li>
                             ))
