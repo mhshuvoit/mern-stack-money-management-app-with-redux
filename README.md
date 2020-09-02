@@ -1,6 +1,6 @@
 # Mern-Stack-Money-Management-App-With-Redux
 
-This is a project template for mern-stack-money-management-app-with-redux. It lives at https://money-manage-app-mhs.herokuapp.com
+This is a project template for mern-stack-money-management-app-with-redux. It lives at https://mern-money-manage-redux-mhs.herokuapp.com
 
 ```bash
 Feature:
