@@ -1,6 +1,6 @@
-// Etar kaz holo ekta object return kora ba kono kisu return kora
-// payload ekta obejct
-// authaction hote pare login, register, logout
+// It retuns a object or something
+// payload is a object
+// authaction can be login, register, logout
 import Axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import * as Types from './types'
@@ -12,7 +12,7 @@ export const register = (user, history) => dispatch => {
 
     // }
     Axios.post('/api/users/register', user)
-        .then(res => {
+        .then(() => {
             dispatch({
                 type: Types.USERS_ERROR,
                 payload: {
@@ -31,7 +31,7 @@ export const register = (user, history) => dispatch => {
         })
 }
 
-export const login = (user, history) => dispatch => {
+export const login = (user, history) => dispatch => { // here we use redux thunk
     Axios.post('/api/users/login', user)
         .then(res => {
             // save our token to local storage
@@ -39,7 +39,7 @@ export const login = (user, history) => dispatch => {
             // decode token
             // dispatch set user
             let token = res.data.token
-            localStorage.setItem('auth_token', token) // second argument obossy string prvide korte hobe jodio token ta already string. String na hole convert kore nite hoto.
+            localStorage.setItem('auth_token', token) // second argument must be string
             setAuthToken(token)
             let decode = jwtDecode(token)
             dispatch({
@@ -49,7 +49,6 @@ export const login = (user, history) => dispatch => {
                 }
             })
             history.push('/dashboard')
-            console.log(res)
         })
         .catch(error => {
             dispatch({

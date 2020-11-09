@@ -15,6 +15,9 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    balance: Number,
+    income: Number,
+    expense: Number,
     transactions: {
         type: [{
             type: Schema.Types.ObjectId,

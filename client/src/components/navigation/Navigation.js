@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {logout} from '../../store/actions/authActions'
+import { logout } from '../../store/actions/authActions'
 
 class Navigation extends React.Component {
     render() {
@@ -14,7 +14,7 @@ class Navigation extends React.Component {
                     dataToggle='collapse'
                     dataTarget='#nav'
                 >
-                <span className='navbar-toggler-icon'></span>
+                    <span className='navbar-toggler-icon'></span>
                 </button>
                 <div className='collapse navbar-collapse' id='nav'>
                     <ul className='navbar-nav ml-auto'>
@@ -26,7 +26,7 @@ class Navigation extends React.Component {
                             </NavLink>
                         </li>
                         {
-                            this.props.auth.isAuthenticated ? 
+                            this.props.auth.isAuthenticated ?
                                 <React.Fragment>
                                     <li className='nav-item'>
                                         <NavLink to='/dashboard' activeClassName='active'>
@@ -36,10 +36,10 @@ class Navigation extends React.Component {
                                         </NavLink>
                                     </li>
                                     <li className='nav-item'>
-                                    <button
-                                        className='btn btn-danger'
-                                        onClick={() => this.props.logout(this.props.history)}>
-                                        Logout
+                                        <button
+                                            className='btn btn-danger'
+                                            onClick={() => this.props.logout(this.props.history)}>
+                                            Logout
                                     </button>
                                     </li>
                                 </React.Fragment>
@@ -71,4 +71,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, {logout})(withRouter(Navigation))
+export default connect(mapStateToProps, { logout })(withRouter(Navigation))

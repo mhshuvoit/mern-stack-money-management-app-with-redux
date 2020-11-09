@@ -84,7 +84,6 @@ class Dashboard extends React.Component {
                                         onClick={() => this.props.removeTransaction(transaction._id)}>
                                             Remove
                                     </button>
-
                                     <button 
                                         className='btn btn-success'
                                         onClick={() => this.openUpdateModal(transaction._id)}>Update</button>

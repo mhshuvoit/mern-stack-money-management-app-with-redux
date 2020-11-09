@@ -7,6 +7,12 @@ const { serverError, resourceError } = require('../util/error')
 
 module.exports = {
     register(req, res) {
+        // read user data
+        // validation
+        // check for dublicate user
+        // new user object
+        // save to database
+        // response back with new user
         let { name, email, password, confirmPassword } = req.body
         let validate = registerValidator({ name, email, password, confirmPassword })
 
@@ -25,9 +31,13 @@ module.exports = {
                             let user = new User({
                                 name,
                                 email,
-                                password: hash
+                                password: hash, 
+                                balance: 0,
+                                expense: 0, 
+                                income: 0,
+                                transactions: []
                             })
-    
+
                             user.save()
                                 .then(user => {
                                     res.status(201).json({
@@ -42,7 +52,13 @@ module.exports = {
                 .catch(error => serverError(res, error))
         }
     },
+
     login(req, res) {
+        // extract data
+        // validation
+        // check for user register
+        // compare password
+        // generate toker and response back (this token is a decoded not encrypted)
         let { email, password } = req.body
         let validate = loginValidator({ email: email, password: password })
 
@@ -53,7 +69,7 @@ module.exports = {
         User.findOne({ email })
             .then(user => {
                 if (!user) {
-                    return resourceError( res, 'User Not Found' )
+                    return resourceError(res, 'User Not Found')
                 } else {
                     bcrypt.compare(password, user.password, (err, result) => {
                         if (err) {
@@ -66,8 +82,11 @@ module.exports = {
                             _id: user._id,
                             name: user.name,
                             email: user.email,
+                            amount: user.amount,
+                            income: user.income,
+                            transactions: user.transactions
                         }, 'SECRET', { expiresIn: '2h' })
-    
+
                         res.status(200).json({
                             message: 'Login Successful',
                             token: `Bearer ${token}`
@@ -77,6 +96,7 @@ module.exports = {
             })
             .catch(error => serverError(res, error))
     },
+
     allUser(req, res) {
         User.find()
             .then(users => {

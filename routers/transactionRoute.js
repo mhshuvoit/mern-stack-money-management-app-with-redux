@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const {getAll, create, update, getSingleTransaction, remove} = require('../controllers/transactionController')
-const authenticate = require('../authenticate')
+const authenticate = require('../middlewares/authenticate')
 
 router.get('/', authenticate, getAll)
 

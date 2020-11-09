@@ -6,7 +6,7 @@ const init = {
     error: {}
 }
 
-const authReducer = (state=init, action) => { //Reducer ekta function
+const authReducer = (state = init, action) => { //Reducer ekta function
     switch (action.type) {
         case Types.SET_USER: {
             return {

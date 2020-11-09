@@ -16,7 +16,6 @@ const customStyles = {
   }
   
 class UpdateTransaction extends React.Component {
-
     state = {
         amount: 0,
         note: ''

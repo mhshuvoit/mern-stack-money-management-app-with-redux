@@ -12,7 +12,7 @@ app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
 
-require('./passport')(passport)
+require('./middlewares/passport')(passport)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
@@ -21,20 +21,16 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-mongoose.connect(config.mongoURI, { useNewUrlParser: true, useCreateIndex: true }
-)
-const db = mongoose.connection
-db.on('error', (err) => {
-    console.log(err)
-})
-db.once("open", () => {
-    console.log("Database connect Established")
-})
+app.use('/api/users', require('./routers/userRoute'))
+app.use('/api/transactions', require('./routers/transactionRoute'))
 
 const PORT = process.env.PORT || 4000
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`)
+    mongoose.connect(config.mongoURI, {
+        useNewUrlParser: true, useCreateIndex: true
+    }, () => {
+        console.log("Database connect Established")
+    }
+    )
 })
-
-app.use('/api/users', require('./routers/userRoute'))
-app.use('/api/transactions', require('./routers/transactionRoute'))

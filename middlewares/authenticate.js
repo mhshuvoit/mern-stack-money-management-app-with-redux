@@ -1,10 +1,11 @@
+// if authenticated then passport.js middleware is enough but is unauthenticated then we have to send an error message that's why we create this authenticated middleware
 const passport = require('passport')
 
 module.exports = (req, res, next) => {
     passport.authenticate('jwt', (err, user, info) => {
         if (err) {
-            console.log(info)
-            console.log(err)
+            // console.log(info)
+            // console.log(err)
             return next(err)
         }
 

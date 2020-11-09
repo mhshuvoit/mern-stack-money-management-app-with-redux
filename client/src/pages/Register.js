@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { register } from "../store/actions/authActions";
+import React from "react"
+import { Link } from "react-router-dom"
+import { connect } from "react-redux"
+import { register } from "../store/actions/authActions"
 
 class Register extends React.Component {
   state = {
@@ -14,7 +14,7 @@ class Register extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (
-      JSON.stringify(nextProps.auth.error) !== JSON.stringify(prevState.error)
+      JSON.stringify(nextProps.auth.error) !== JSON.stringify(prevState.error) // don't possible compare bitween 2 object that's why we have to convert JSON.stringify
     ) {
       return {
         error: nextProps.auth.error
@@ -126,6 +126,6 @@ class Register extends React.Component {
 
 const mapStateToProps = state => ({
   auth: state.auth
-});
+})
 
-export default connect(mapStateToProps,{ register})(Register);
+export default connect(mapStateToProps, { register })(Register)
